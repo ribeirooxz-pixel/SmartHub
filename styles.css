@@ -1,0 +1,380 @@
+/* Reset Geral: remove espaçamentos padrões */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* evita quebra de layout */
+}
+
+/* Remove decoração padrão de links */
+a {
+  text-decoration: none;
+  color: inherit; /* mantém a cor atual */
+}
+
+/* Remove marcadores de listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove bordas e estilos padrões de inputs e botões */
+button,
+input,
+textarea,
+select {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Define altura padrão de linha */
+body {
+  line-height: 1;
+}
+
+/* Variáveis do carrinho no modo escuro */
+body.dark {
+  --cart-bg: #222;
+  --cart-text: #fff;
+  --cart-border: #555;
+}
+
+/* Variáveis principais do tema (modo claro) */
+:root {
+    --cart-bg: #fff;
+    --cart-text: #000;
+    --cart-border: #ddd;
+    --bg: #eef1f6;
+    --text: #1c1c1c;
+    --card: #ffffff;
+    --accent: #4e5dff;
+    --shadow: rgba(0,0,0,0.15);
+  }
+  
+/* Variáveis para modo escuro */
+.dark {
+    --bg: #0d1117;
+    --text: #e6eef6;
+    --card: #141b2d;
+    --accent: #7c3aed;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  
+/* Estilo geral do body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: .3s; /* animação suave ao trocar tema */
+  }
+  
+/* Barra de navegação fixa no topo */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--card);
+    color: var(--text);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px var(--shadow);
+    z-index: 20; /* fica acima do conteúdo */
+  }
+  
+/* Links do menu */
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text);
+  }
+  
+/* Botões no menu */
+nav button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+  }
+
+/* Menu lateral mobile */
+.menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  background: #333;
+  padding: 10px;
+  border-radius: 8px;
+  flex-direction: row;
+}
+
+/* Links dentro do menu mobile */
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+/* Botão que abre o menu mobile */
+.menu-toggle {
+  font-size: 20px;  
+  padding: 12px 16px; 
+}
+ 
+/* Painel lateral do carrinho */
+#cartOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+
+  /* cores mudam conforme o tema */
+  background: var(--cart-bg);
+  color: var(--cart-text);
+  border-left: 2px solid var(--cart-border);
+
+  padding: 20px;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+  border-radius: 0; /* sem borda porque ocupa a lateral toda */
+}
+
+/* Botões dentro do carrinho */
+#cartOverlay button {
+  background: var(--cart-text);
+  color: var(--cart-bg);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Botão fechar carrinho */
+.closeCart {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Cada item dentro do carrinho */
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cart-border);
+}
+
+/* Nome do produto */
+.cart-item .item-name {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Linha com preço, quantidade e subtotal */
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Preço e subtotal */
+.item-price, .item-total {
+  font-size: 14px;
+}
+
+/* Controles de quantidade */
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Botões de + e - */
+.qty-controls button {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--cart-text);
+  color: var(--cart-bg);
+}
+
+/* Botão vermelho de remover item */
+.remove-btn {
+  align-self: flex-end;
+  margin-top: 5px;
+  padding: 4px 10px;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Hover do botão remover */
+.remove-btn:hover {
+  background: darkred;
+}
+
+/* Espaçamento das seções da página */
+section {
+    padding: 110px 20px 40px;
+  }
+  
+/* Título das seções */
+h2 {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 4px solid var(--accent);
+  }
+  
+/* Card de produto */
+.item {
+    display: flex;
+    background: var(--card);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 16px var(--shadow);
+    margin-bottom: 15px;
+    gap: 12px;
+    align-items: center;
+  }
+  
+/* Imagem do produto */
+.item img {
+    width: 100px;
+    height: 100px;
+    background: #999;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+/* Descrição do produto */
+.item .descricao {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 5px 0 10px 0;
+  line-height: 1.4;
+}
+  
+/* Botão de adicionar ao carrinho */
+.item button {
+    margin-top: 6px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+/* --- SEÇÃO SOBRE NÓS --- */
+#sobre-nos {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 40px 20px;
+  margin-top: 40px;
+  border-top: 2px solid var(--border);
+}
+
+/* Container central da seção */
+.sobre-container {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+/* Título Sobre Nós */
+#sobre-nos h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+/* Texto do Sobre Nós */
+#sobre-nos p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 10px 0;
+  color: var(--text-secondary);
+}
+/* ===========================
+     RESPONSIVIDADE
+=========================== */
+@media (max-width: 768px) {
+
+  /* Ajuste do body */
+  body {
+    font-size: 14px;
+  }
+
+  /* Ajuste dos itens */
+  .item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .item img {
+    width: 80%;
+    max-width: 250px;
+  }
+
+  /* Ajuste do carrinho */
+  #cart {
+    width: 90%;
+    right: 5%;
+  }
+
+  #cart .cart-item {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #cart .cart-item img {
+    width: 120px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  body {
+    font-size: 13px;
+  }
+
+  .item img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  #cart {
+    width: 95%;
+    right: 2.5%;
+    padding: 10px;
+  }
+
+  #cart .cart-item {
+    gap: 5px;
+  }
+}

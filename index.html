@@ -1,0 +1,315 @@
+<!DOCTYPE html> 
+<!-- Define o documento como HTML5 -->
+
+<html lang="pt-BR"> 
+<!-- Informa que o site está em português do Brasil -->
+
+<head>
+<meta charset="UTF-8"> 
+<!-- Suporte para acentuação -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Ajusta a página para telas pequenas (celular) -->
+
+<title>SmartHub</title>
+<!-- Título da aba do navegador -->
+
+<link rel="stylesheet" href="styles.css">
+<!-- Importa o arquivo CSS -->
+
+</head>
+
+<body>
+
+ <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
+ <nav>
+
+<div class="menu-toggle" id="menuToggle">☰</div>
+<!-- Botão do menu para mobile -->
+
+<div class="menu" id="menu">
+    <!-- Menu com links que levam para as seções da página -->
+    <a href="#teclados">Teclados</a>
+    <a href="#mouses">Mouses</a>
+    <a href="#fones">Fones</a>
+    <a href="#monitores">Monitores</a>
+</div>
+
+  <div>
+    <!-- Botões para trocar o tema e abrir o carrinho -->
+    <button onclick="toggleTheme()">Tema</button>
+    <button onclick="toggleCart()">Carrinho</button>
+  </div>
+
+</nav>
+
+<!-- ÁREA DO CARRINHO -->
+<div id="cartOverlay">
+  <h3>Carrinho</h3>
+
+  <div id="cartItems"></div>
+  <!-- Itens adicionados aparecerão aqui -->
+
+  <p id="cartTotal">Total: R$ 0,00</p>
+  <!-- Total do carrinho -->
+
+  <button class="closeCart" onclick="toggleCart()">Fechar</button>
+  <!-- Botão para fechar o carrinho -->
+</div>
+
+<!-- SEÇÃO TECLADOS -->
+<section id="teclados">
+  <h2>Teclados</h2>
+
+  <!-- PRODUTO 1 -->
+  <div class="item">
+    <img src="img/teclado2.jpg">
+    <!-- Imagem do produto -->
+
+    <div>
+      <h3>Teclado Mecânico RGB</h3>
+      <!-- Nome do produto -->
+
+      <p class="descricao">
+        <!-- Descrição do produto -->
+        Este teclado mecânico de alto desempenho permite que você desfrute de horas ilimitadas de jogos. Foi especialmente desenvolvido para que você possa expressar suas habilidades e seu estilo.
+      <p>R$ 299,99</p>
+      <!-- Preço -->
+
+      <button onclick="addToCart('Teclado Mecânico', 299.90)">Adicionar</button>
+      <!-- Botão para adicionar ao carrinho -->
+    </div>
+  </div>
+
+  <!-- PRODUTO 2 -->
+  <div class="item">
+    <img src="img/teclado.jpg">
+    <div>
+      <h3>Teclado Low Profile</h3>
+
+      <p class="descricao">
+        Teclado Low Profile com design ergonômico, teclas silenciosas e retroiluminação ajustável. Este oferece um ótimo desempenho para digitação e jogos, ideal para quem busca conforto e estilo.
+      </p>
+
+      <p>R$ 249,99</p>
+
+      <button onclick="addToCart('Teclado Low Profile', 249.90)">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- PRODUTO 3 -->
+  <div class="item">
+    <img src="img/teclado3.jpg">
+    <div>
+      <h3>Teclado Gamer Sem Fio</h3>
+
+      <p class="descricao">
+        Teclado Gamer Sem Fio com conexão Bluetooth, teclas programáveis e iluminação RGB personalizável. Ideal para gamers que buscam liberdade de movimento sem comprometer o desempenho.
+      </p>
+
+      <p>R$ 329,99</p>
+
+      <button onclick="addToCart('Teclado LGamer Sem Fio', 329.99)">Adicionar</button>
+      <!-- Nome digitado do jeito que estava no original -->
+    </div>
+  </div>
+</section>
+
+  <h2>Mouses</h2>
+  <!-- Título da seção de mouses -->
+
+  <!-- PRODUTO 1 -->
+  <div class="item">
+    <img src="img/mouse.jpg">
+    <div>
+      <h3>Mouse Gamer</h3>
+
+      <p class="descricao">
+        Apresentamos o Mouse Gamer , projetado para elevar sua experiência, o mesmo oferece desempenho de elite com o sensor PIXART 3327, resistência para maratonas de jogo e uma conexão rápida e estável via Bluetooth.
+      </p>
+      <p>R$ 199,99</p>
+
+      <button onclick="addToCart('Mouse Gamer RGB', 199.99)">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- PRODUTO 2 -->
+  <div class="item">
+    <img src="img/mouse2.jpg">
+    <div>
+      <h3>Mouse Sem Fio</h3>
+
+      <p class="descricao">
+        Mouse Sem Fio com alta precisão, design ergonômico e bateria de longa duração. Ideal para quem busca liberdade de movimento sem comprometer o desempenho.
+      </p>
+
+      <p>R$ 159,99</p>
+      <button onclick="addToCart('Mouse Sem Fio', 159.99)">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- PRODUTO 3 -->
+  <div class="item">
+    <img src="img/mouse3.jpg">
+    <div>
+      <h3>Mouse Vertical</h3>
+
+      <p class="descricao">
+        Chega de desconforto e dores no pulso! Apresentamos o Mouse Ergonômico Vertical Sem Fio, a escolha perfeita para quem busca saúde, produtividade e uma experiência de uso sem interrupções. Projetado para se adaptar à postura natural da sua mão. 
+      </p>
+
+      <p>R$ 63,49</p>
+      <button onclick="addToCart('Mouse Vertical', 63.50)">Adicionar</button>
+    </div>
+  </div>
+
+</section>
+<!-- Fim da seção de mouses -->
+
+<section id="fones">
+  <!-- Seção Fones -->
+  <h2>Fones de Ouvido</h2>
+
+  <!-- PRODUTO 1 -->
+  <div class="item">
+    <img src="img/headset.jpg">
+    <div>
+      <h3>Headset Gamer</h3>
+
+      <p class="descricao">
+        Headset Gamer com som surround 7.1, microfone ajustável com cancelamento de ruído e almofadas confortáveis para longas sessões de jogo. Ideal para gamers que buscam imersão total.
+      </p>
+
+      <p>R$ 249,99</p>
+
+      <button onclick="addToCart('Headset Gamer', 249.99)">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- PRODUTO 2 -->
+  <div class="item">
+    <img src="img/fone.jpg">
+    <div>
+      <h3>Fone Bluetooth</h3>
+
+      <p class="descricao">
+      Fone de ouvido Bluetooth com cancelamento de ruído ativo, bateria de longa duração e design confortável para uso prolongado.
+      </p>
+
+      <p>R$ 149,99</p>
+
+      <button onclick="addToCart('Fone Bluetooth', 149.99)">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- PRODUTO 3 -->
+  <div class="item">
+    <img src="img/fone2.jpg">
+    <div>
+      <h3>Fone Com Fio Gamer</h3>
+
+      <p class="descricao">
+      Fone de ouvido com fio projetado para gamers, oferecendo som de alta qualidade, microfone com cancelamento de ruído e conforto para longas sessões de jogo.
+      </p>
+
+      <p>R$ 79,99</p>
+
+      <button onclick="addToCart('Fone Com Fio Gamer', 79.99)">Adicionar</button>
+    </div>
+  </div>
+</section>
+
+<section id="monitores">
+  <!-- Seção Monitores -->
+  <h2>Monitores</h2>
+
+<!-- PRODUTO 1 -->
+<div class="item">
+  <img src="img/monitor.jpg">
+  <div>
+    <h3>Monitor Gamer 165Hz</h3>
+
+    <p class="descricao">
+      Experimente a imersão total com o Monitor Gamer de 27", modelo 27G4/P. Com uma impressionante taxa de atualização de 165Hz e um tempo de resposta de apenas 
+      0,5ms, este monitor é ideal para jogos de alta velocidade.
+    </p>
+
+    <p>R$ 1299,99</p>
+
+    <button onclick="addToCart('Monitor Gamer', 1299.99)">Adicionar</button>
+  </div>
+</div>
+
+  <!-- PRODUTO 2 -->
+  <div class="item">
+    <img src="img/monitor2.jpg">
+    <div>
+      <h3>Monitor Ultrawide</h3>
+
+      <p class="descricao">
+        Este monitor é compatível com HDR10 (alta faixa dinâmica), suportando níveis específicos de cor e brilho que permitem que os espectadores aproveitem as cores dramáticas do conteúdo.
+      </p>
+
+      <p>R$ 1999,99</p>
+
+      <button onclick="addToCart('Monitor Ultrawide', 1999.99)">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- PRODUTO 3 -->
+  <div class="item">
+    <img src="img/monitor3.jpg">
+    <div>
+      <h3>Monitor Borda infinita</h3>
+
+      <p class="descricao">
+        Com design de borda infinita em três lados, este monitor oferece uma experiência visual imersiva e elegante, ideal para configurações multi-monitor.
+      </p>
+
+      <p>R$ 899,99</p>
+
+      <button onclick="addToCart('Monitor Borda Infinita', 899.99)">Adicionar</button>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+<footer id="sobre-nos">
+  <div class="sobre-container">
+    <h2>Sobre Nós</h2>
+    <p>
+      <!-- Texto sobre a empresa-->
+      Na SmartHub, acreditamos que tecnologia de qualidade deve ser acessível, moderna e prática para todos. 
+      Por isso, trabalhamos diariamente para oferecer os melhores produtos do mundo gamer e eletrônico, 
+      sempre com transparência, confiança e atendimento dedicado.
+    </p>
+
+    <p>
+      Nosso objetivo é garantir que cada cliente encontre exatamente o que precisa — desde periféricos de alto desempenho 
+      até acessórios que elevam sua experiência digital ao próximo nível. Prezamos por qualidade, preço justo e entrega 
+      rápida, porque sabemos que cada detalhe importa.
+    </p>
+
+    <p>
+      Na SmartHub, tecnologia não é apenas compra: é evolução.
+    </p>
+
+    <footer id="contato">
+  <h3>Contato</h3>
+
+  <div class="footer-contato">
+    <p><strong>Email:</strong> contato@smarthub.com</p>
+    <p><strong>Telefone:</strong> (11) 4002-8922</p>
+    <p><strong>Instagram:</strong> @smarthub</p>
+  </div>
+</footer>
+
+
+  </div>
+</footer>
+
+<!-- Importa o JavaScript -->
+<script src="app.js"></script>
+
+</body>
+</html>
